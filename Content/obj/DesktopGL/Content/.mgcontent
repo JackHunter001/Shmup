@@ -4,12 +4,14 @@
   <Platform>DesktopGL</Platform>
   <Config />
   <SourceFiles>
+    <File>C:/Users/jackc/source/repos/Shmup/Shmup/Content/BigFont.spritefont</File>
     <File>C:/Users/jackc/source/repos/Shmup/Shmup/Content/missile.png</File>
     <File>C:/Users/jackc/source/repos/Shmup/Shmup/Content/saucer.png</File>
     <File>C:/Users/jackc/source/repos/Shmup/Shmup/Content/space.png</File>
     <File>C:/Users/jackc/source/repos/Shmup/Shmup/Content/UIFont.spritefont</File>
   </SourceFiles>
   <DestFiles>
+    <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
     <File xsi:nil="true" />
