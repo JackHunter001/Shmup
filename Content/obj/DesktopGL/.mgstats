@@ -1,6 +1,7 @@
 Source File,Dest File,Processor Type,Content Type,Source File Size,Dest File Size,Build Seconds
-"C:/Users/jackc/source/repos/Shmup/Shmup/Content/BigFont.spritefont","C:/Users/jackc/source/repos/Shmup/Shmup/Content/bin/DesktopGL/BigFont.xnb","FontDescriptionProcessor","SpriteFontContent",2011,70690,0.4879844
+"C:/Users/jackc/source/repos/Shmup/Shmup/Content/BigFont.spritefont","C:/Users/jackc/source/repos/Shmup/Shmup/Content/bin/DesktopGL/BigFont.xnb","FontDescriptionProcessor","SpriteFontContent",2011,136226,0.5248729
 "C:/Users/jackc/source/repos/Shmup/Shmup/Content/missile.png","C:/Users/jackc/source/repos/Shmup/Shmup/Content/bin/DesktopGL/missile.xnb","TextureProcessor","Texture2DContent",22084,32853,0.4616009
+"C:/Users/jackc/source/repos/Shmup/Shmup/Content/particle.png","C:/Users/jackc/source/repos/Shmup/Shmup/Content/bin/DesktopGL/particle.xnb","TextureProcessor","Texture2DContent",2405,16469,0.2650287
 "C:/Users/jackc/source/repos/Shmup/Shmup/Content/saucer.png","C:/Users/jackc/source/repos/Shmup/Shmup/Content/bin/DesktopGL/saucer.xnb","TextureProcessor","Texture2DContent",31236,32853,0.032593
 "C:/Users/jackc/source/repos/Shmup/Shmup/Content/space.png","C:/Users/jackc/source/repos/Shmup/Shmup/Content/bin/DesktopGL/space.xnb","TextureProcessor","Texture2DContent",445299,1440085,0.5770589
 "C:/Users/jackc/source/repos/Shmup/Shmup/Content/UIFont.spritefont","C:/Users/jackc/source/repos/Shmup/Shmup/Content/bin/DesktopGL/UIFont.xnb","FontDescriptionProcessor","SpriteFontContent",2011,70690,0.0563161

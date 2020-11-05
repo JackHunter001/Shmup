@@ -16,13 +16,14 @@ namespace Shmup
         private GraphicsDeviceManager _graphics;
         private SpriteBatch _spriteBatch;
 
-        Texture2D saucerTxr, missileTxr, backgroundTxr;
+        Texture2D saucerTxr, missileTxr, backgroundTxr, particleTxr;
         Point screenSize = new Point(800, 450);
         float spawnCooldown = 2;
 
         Sprite backgroundSprite;
         PlayerSprite playerSprite;
         List<MissileSprite> missiles = new List<MissileSprite>();
+        List<ParticleSprite> particles = new List<ParticleSprite>();
         SpriteFont uiFont;
         SpriteFont bigFont;
 
@@ -49,6 +50,8 @@ namespace Shmup
             saucerTxr = Content.Load<Texture2D>("saucer");
             missileTxr = Content.Load<Texture2D>("missile");
             backgroundTxr = Content.Load<Texture2D>("space");
+            particleTxr = Content.Load<Texture2D>("particle");
+
             uiFont = Content.Load<SpriteFont>("UIFont");
             bigFont = Content.Load<SpriteFont>("BigFont");
 
@@ -82,12 +85,17 @@ namespace Shmup
 
                 if (playerSprite.playerLives > 0 && playerSprite.IsColliding(missile))
                 {
+                    for (int i = 0; i < 16; i++) particles.Add(new ParticleSprite(particleTxr, new Vector2(missile.spritePos.X + (missileTxr.Width / 2) - (particleTxr.Width / 2), (missile.spritePos.Y + (missileTxr.Height / 2) - (particleTxr.Height / 2)))));
+
                     missile.dead = true;
                     playerSprite.playerLives--;
                 }
             }
 
+            foreach (ParticleSprite particle in particles) particle.Update(gameTime, screenSize);
+
             missiles.RemoveAll(missile => missile.dead);
+            particles.RemoveAll(particle => particle.currentLife <= 0);
 
             base.Update(gameTime);
         }
@@ -102,15 +110,18 @@ namespace Shmup
            if (playerSprite.playerLives> 0) playerSprite.Draw(_spriteBatch);
             
             foreach(MissileSprite missile in missiles) missile.Draw(_spriteBatch);
+            foreach (ParticleSprite particle in particles) particle.Draw(_spriteBatch);
 
-            _spriteBatch.DrawString(uiFont, "Lives: " + playerSprite.playerLives, new Vector2(10,10), Color.White);
             _spriteBatch.DrawString(uiFont, "Lives: " + playerSprite.playerLives, new Vector2(12, 12), Color.Black);
+            _spriteBatch.DrawString(uiFont, "Lives: " + playerSprite.playerLives, new Vector2(10,10), Color.White);
+           
 
             if (playerSprite.playerLives <=0)
             {
                 Vector2 textSize = bigFont.MeasureString("GAME OVER");
-                _spriteBatch.DrawString(bigFont, "GAME OVER", new Vector2((screenSize.X / 2) - (textSize.X / 2), (screenSize.Y / 2) - (textSize.Y / 2)), Color.White);
                 _spriteBatch.DrawString(bigFont, "GAME OVER", new Vector2((screenSize.X / 2) - (textSize.X / 2) + 4, (screenSize.Y / 2) - (textSize.Y / 2) + 4), Color.Black);
+                _spriteBatch.DrawString(bigFont, "GAME OVER", new Vector2((screenSize.X / 2) - (textSize.X / 2), (screenSize.Y / 2) - (textSize.Y / 2)), Color.White);
+                
             }
 
             _spriteBatch.End();
