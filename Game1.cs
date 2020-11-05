@@ -69,7 +69,7 @@ namespace Shmup
             {
                 spawnCooldown -= (float)gameTime.ElapsedGameTime.TotalSeconds;
             }
-            else if (playerSprite.playerLives > 0 && missiles.Count < (Math.Min(playTime, 120f)/120f) * 30 + 5))
+            else if (playerSprite.playerLives > 0 && missiles.Count < (Math.Min(playTime, 120f)/120f) * 30 + 5)
             {
                 missiles.Add(new MissileSprite(missileTxr, new Vector2(screenSize.X, rng.Next(0, screenSize.Y - missileTxr.Height)), (Math.Min(playTime, 120f)/120f) * 50000 + 100f));
                 spawnCooldown = (float)(rng.NextDouble() + 0.5);
